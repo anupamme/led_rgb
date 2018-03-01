@@ -58,7 +58,7 @@ void flush(){
 void loop() {
 
  if(head >= NUMPIXELS) {         // Increment head index.  Off end of strip?
-   delay(5000)
+   delay(5000);
    if(state == 0){
      r = 0;
      g = 255;
