@@ -43,14 +43,16 @@ void setup() {
  
 int head  = 0; // Index of first 'on' and 'off' pixels
 // pink color
-global uint8_t r = 255;
-global uint8_t g = 105;
-global uint8_t b = 180;
-global uint8_t state = 0;
+uint8_t r = 255;
+uint8_t g = 105;
+uint8_t b = 180;
+uint8_t state = 0;
 
 void flush(){
-  for (int i = 0; i < NUMPIXELS; i++)
-    strip.setPixelColor(i, 0, 0, 0)
+  for (int i = 0; i < NUMPIXELS; i++){
+    strip.setPixelColor(i, 0, 0, 0);
+  }
+    
 }
 
 void loop() {
@@ -61,23 +63,24 @@ void loop() {
      r = 0;
      g = 255;
      b = 0;
-     state = 1
+     state = 1;
    }
    else {
      r = 0;
      g = 0;
      b = 255;
-     state = 2
+     state = 2;
    }
    head = 0;                       //  Yes, reset head index to start
-   flush()
+   flush();
  }
   
  // 'On' pixel at head
+  Serial.println("\nr, g, b: " + String(r) + ', ' + String(g) + ', ' + String(b));
   strip.setPixelColor(head, r, g, b);
   //strip.setPixelColor(tail, 34, 56, 89);     // 'Off' pixel at tail
   strip.begin();
   strip.show();                     // Refresh strip
   
-  head = head + 1
+  head = head + 1;
 }
