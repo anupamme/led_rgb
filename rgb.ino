@@ -76,7 +76,7 @@ void loop() {
  }
   
  // 'On' pixel at head
-  Serial.println("\nr, g, b: " + String(r) + ', ' + String(g) + ', ' + String(b));
+  Serial.println("\nr, g, b: " + String(r) + ", " + String(g) + ", " + String(b));
   strip.setPixelColor(head, r, g, b);
   //strip.setPixelColor(tail, 34, 56, 89);     // 'Off' pixel at tail
   strip.begin();
