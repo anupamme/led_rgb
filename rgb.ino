@@ -47,8 +47,8 @@ uint8_t r = 255;
 uint8_t g = 105;
 uint8_t b = 180;
 uint8_t state = 0;
-int brightness = 100;    // how bright the LED is
-int fadeamount = 5;    // how many points to fade the LED by
+int brightness = 255;    // how bright the LED is
+int fadeamount = 50;    // how many points to fade the LED by
 
 void flush(){
   for (int i = 0; i < NUMPIXELS; i++){
@@ -100,6 +100,7 @@ void loop() {
 //   }
    head = 0;                       //  Yes, reset head index to start
    flush();
+   brightness = 255
  }
 
  // 'On' pixel at head
