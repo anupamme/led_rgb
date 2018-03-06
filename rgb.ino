@@ -101,7 +101,7 @@ void loop() {
   //strip.setPixelColor(tail, 34, 56, 89);     // 'Off' pixel at tail
   strip.begin();
   strip.show();                     // Refresh strip
-  
+  delay(100)
   head = head + 1;
   brightness = brightness + fadeamount;
 }
