@@ -47,7 +47,7 @@ uint8_t r = 255;
 uint8_t g = 105;
 uint8_t b = 180;
 uint8_t state = 0;
-int brightness = 0;    // how bright the LED is
+int brightness = 100;    // how bright the LED is
 int fadeamount = 5;    // how many points to fade the LED by
 
 void flush(){
