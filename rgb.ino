@@ -63,6 +63,7 @@ void fadeToZero() {
         delay(100);
     }
     strip.setBrightness(0);
+    delay(100);
 }
 
 void loop() {
@@ -76,27 +77,27 @@ void loop() {
  if(head >= NUMPIXELS) {         // Increment head index.  Off end of strip?
    delay(5000);
    fadeToZero();
-   if(state == 0){
-     r = 0;
-     g = 255;
-     b = 0;
-     state = 1;
-   }
-   else {
-     if (state == 1){
-        r = 0;
-        g = 0;
-        b = 255;
-        state = 2;
-     }
-     else {
-        r = 255;
-        g = 105;
-        b = 180;
-        state = 0; 
-     }
-     
-   }
+//   if(state == 0){
+//     r = 0;
+//     g = 255;
+//     b = 0;
+//     state = 1;
+//   }
+//   else {
+//     if (state == 1){
+//        r = 0;
+//        g = 0;
+//        b = 255;
+//        state = 2;
+//     }
+//     else {
+//        r = 255;
+//        g = 105;
+//        b = 180;
+//        state = 0; 
+//     }
+//     
+//   }
    head = 0;                       //  Yes, reset head index to start
    flush();
  }
