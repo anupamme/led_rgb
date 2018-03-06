@@ -48,7 +48,7 @@ uint8_t g = 105;
 uint8_t b = 180;
 uint8_t state = 0;
 int brightness = 0;    // how bright the LED is
-int fadeAmount = 5;    // how many points to fade the LED by
+int fadeamount = 10;    // how many points to fade the LED by
 
 void flush(){
   for (int i = 0; i < NUMPIXELS; i++){
@@ -82,7 +82,11 @@ void loop() {
         fadeamount = -fadeamount; 
      }
      else {
-       fadeamount = -fadeamount; 
+        r = 255;
+        g = 105;
+        b = 180;
+        state = 0; 
+        fadeamount = -fadeamount; 
      }
      
    }
@@ -92,12 +96,12 @@ void loop() {
 
  // 'On' pixel at head
   Serial.println("\nr, g, b: " + String(r) + ", " + String(g) + ", " + String(b));
-  strip.set(brightness);
   strip.setPixelColor(head, r, g, b);
+  strip.setBrightness(brightness);
   //strip.setPixelColor(tail, 34, 56, 89);     // 'Off' pixel at tail
   strip.begin();
   strip.show();                     // Refresh strip
   
   head = head + 1;
-  brightness = brightness + fadeAmount;
+  brightness = brightness + fadeamount;
 }
