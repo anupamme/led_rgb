@@ -48,12 +48,20 @@ uint8_t g = 105;
 uint8_t b = 180;
 uint8_t state = 0;
 int brightness = 0;    // how bright the LED is
-int fadeamount = 10;    // how many points to fade the LED by
+int fadeamount = 5;    // how many points to fade the LED by
 
 void flush(){
   for (int i = 0; i < NUMPIXELS; i++){
     strip.setPixelColor(i, 0, 0, 0);
   }
+}
+
+void fadeToZero() {
+    fadeamount = - fadeamount;
+    while (brightness > 0) {
+        brightness = brightness + fadeamount;
+        strip.setBrightness(brightness);    
+    }
 }
 
 void loop() {
@@ -66,12 +74,13 @@ void loop() {
  }
  if(head >= NUMPIXELS) {         // Increment head index.  Off end of strip?
    delay(5000);
+   fadeToZero()
+   fadeamount = -fadeamount;
    if(state == 0){
      r = 0;
      g = 255;
      b = 0;
      state = 1;
-     fadeamount = -fadeamount;
    }
    else {
      if (state == 1){
@@ -79,14 +88,12 @@ void loop() {
         g = 0;
         b = 255;
         state = 2;
-        fadeamount = -fadeamount; 
      }
      else {
         r = 255;
         g = 105;
         b = 180;
         state = 0; 
-        fadeamount = -fadeamount; 
      }
      
    }
@@ -101,7 +108,6 @@ void loop() {
   //strip.setPixelColor(tail, 34, 56, 89);     // 'Off' pixel at tail
   strip.begin();
   strip.show();                     // Refresh strip
-  delay(100)
   head = head + 1;
   brightness = brightness + fadeamount;
 }
