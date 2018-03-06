@@ -57,9 +57,8 @@ void flush(){
 }
 
 void fadeToZero() {
-    fadeamount = - fadeamount;
-    while (brightness > 0) {
-        brightness = brightness + fadeamount;
+    while (brightness >= 0) {
+        brightness = brightness - fadeamount;
         strip.setBrightness(brightness);
         delay(100);
     }
@@ -75,8 +74,7 @@ void loop() {
  }
  if(head >= NUMPIXELS) {         // Increment head index.  Off end of strip?
    delay(5000);
-   fadeToZero()
-   fadeamount = -fadeamount;
+   fadeToZero();
    if(state == 0){
      r = 0;
      g = 255;
