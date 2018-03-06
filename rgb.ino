@@ -60,7 +60,8 @@ void fadeToZero() {
     fadeamount = - fadeamount;
     while (brightness > 0) {
         brightness = brightness + fadeamount;
-        strip.setBrightness(brightness);    
+        strip.setBrightness(brightness);
+        delay(100);
     }
 }
 
