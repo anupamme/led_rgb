@@ -49,6 +49,29 @@ void loop() {
   FastLED.show();
 }
 
+extern const TProgmemRGBPalette16 SimColors_p FL_PROGMEM =
+{
+    CRGB::Blue,
+    CRGB::DarkBlue,
+    CRGB::DarkBlue,
+    CRGB::DarkBlue,
+
+    CRGB::DarkBlue,
+    CRGB::DarkBlue,
+    CRGB::DarkBlue,
+    CRGB::DarkBlue,
+
+    CRGB::Blue,
+    CRGB::DarkBlue,
+    CRGB::SkyBlue,
+    CRGB::SkyBlue,
+
+    CRGB::LightBlue,
+    CRGB::White,
+    CRGB::LightBlue,
+    CRGB::SkyBlue
+};
+
 void sunrise() {
   
   // total sunrise length, in minutes
@@ -67,7 +90,7 @@ void sunrise() {
   // HeatColors_p is a gradient palette built in to FastLED
   // that fades from black to red, orange, yellow, white
   // feel free to use another palette or define your own custom one
-  CRGB color = ColorFromPalette(HeatColors_p, heatIndex);
+  CRGB color = ColorFromPalette(SimColors_p, heatIndex);
 
   // fill the entire strip with the current color
   fill_solid(leds, NUM_LEDS, color);
