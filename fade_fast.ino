@@ -110,10 +110,11 @@ CRGB color = ColorFromPalette(SimColors_p, heatIndex);
   EVERY_N_MILLISECONDS(interval ) { 
       if(heatIndex < 255) 
           heatIndex++; 
-      else
+      else{
           delay(2500)
           fill_solid(leds, NUM_LEDS, CRGB(0,0,0));
           heatIndex = 0
+      }
   }
 //  EVERY_N_SECONDS(interval) {
 //    // stop incrementing at 255, we don't want to overflow back to 0
