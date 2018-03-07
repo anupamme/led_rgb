@@ -52,10 +52,24 @@ void loop() {
 extern const TProgmemRGBPalette16 SimColors_p FL_PROGMEM =
 {
     CRGB::Green,
-    CRGB::Aqua,
-    CRGB::Blue,
-    CRGB::Purple,
-    CRGB::Pink
+    CRGB::ForestGreen,
+    CRGB::OliveDrab,
+    CRGB::Green,
+    
+    CRGB::SeaGreen,
+    CRGB::MediumAquamarine,
+    CRGB::LimeGreen,
+    CRGB::YellowGreen,
+    
+    CRGB::MidnightBlue,
+    CRGB::DarkBlue,
+    CRGB::MidnightBlue,
+    CRGB::Navy,
+
+    CRGB:: Purple,
+    CRGB:: Purple,
+    CRGB:: Purple,
+    CRGB:: Purple
 };
 
 void sunrise() {
@@ -77,7 +91,12 @@ void sunrise() {
   // that fades from black to red, orange, yellow, white
   // feel free to use another palette or define your own custom one
   CRGB color = ColorFromPalette(SimColors_p, heatIndex);
-
+//  CRGB color = ColorFromPalette(CloudColors_p, heatIndex);
+//  CRGB color = ColorFromPalette(OceanColors_p, heatIndex);
+//  CRGB color = ColorFromPalette(ForestColors_p, heatIndex);
+//  CRGB color = ColorFromPalette(RainbowColors_p, heatIndex);
+//  CRGB color = ColorFromPalette(ForestColors_p, heatIndex);
+//  CRGB color = ColorFromPalette(RainbowColors_p, heatIndex);
   // fill the entire strip with the current color
   fill_solid(leds, NUM_LEDS, color);
 
