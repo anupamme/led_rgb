@@ -110,19 +110,21 @@ void sunrise() {
 //  CRGB color = ColorFromPalette(ForestColors_p, heatIndex);
 //  CRGB color = ColorFromPalette(RainbowColors_p, heatIndex);
 //  CRGB color = ColorFromPalette(ForestColors_p, heatIndex);
-  CRGB color = ColorFromPalette(SimRainbowColors_p, heatIndex);
+//  CRGB color = ColorFromPalette(SimRainbowColors_p, heatIndex);
   // fill the entire strip with the current color
-  fill_solid(leds, NUM_LEDS, color);
+//  fill_solid(leds, NUM_LEDS, color);
 
   // slowly increase the heat
   EVERY_N_MILLISECONDS(interval ) { 
       if(heatIndex < 255) 
           heatIndex++; 
       else{
-          delay(2500)
+          delay(2500);
           fill_solid(leds, NUM_LEDS, CRGB(0,0,0));
-          heatIndex = 0
+          heatIndex = 0;
       }
+      CRGB color = ColorFromPalette(SimRainbowColors_p, heatIndex);
+      fill_solid(leds, NUM_LEDS, color);
   }
 //  EVERY_N_SECONDS(interval) {
 //    // stop incrementing at 255, we don't want to overflow back to 0
