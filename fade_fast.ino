@@ -72,6 +72,14 @@ extern const TProgmemRGBPalette16 SimColors_p FL_PROGMEM =
     CRGB::Green
 };
 
+extern const TProgmemRGBPalette16 SimRainbowColors_p FL_PROGMEM =
+{
+    0xFF0000, 0xD52A00, 0x56D500, 0x00D52A, 
+    0x00AB55, 0x00FFFF, 0x008080, 0x0000FF, 
+    0x2A00D5, 0x5500AB, 0x7F0081, 0xAB0055, 
+    0xD5002B, 0xFF1493, 0xFFB6C1, 0xFFFFFF
+};
+
 //void flush(){
 //  for (int i = 0; i < NUM_LEDS; i++){
 //    strip.setPixelColor(i, 0, 0, 0);
@@ -96,13 +104,13 @@ void sunrise() {
   // HeatColors_p is a gradient palette built in to FastLED
   // that fades from black to red, orange, yellow, white
   // feel free to use another palette or define your own custom one
-CRGB color = ColorFromPalette(SimColors_p, heatIndex);
+//CRGB color = ColorFromPalette(SimColors_p, heatIndex);
 //  CRGB color = ColorFromPalette(CloudColors_p, heatIndex);
 //  CRGB color = ColorFromPalette(OceanColors_p, heatIndex);
 //  CRGB color = ColorFromPalette(ForestColors_p, heatIndex);
 //  CRGB color = ColorFromPalette(RainbowColors_p, heatIndex);
 //  CRGB color = ColorFromPalette(ForestColors_p, heatIndex);
-//  CRGB color = ColorFromPalette(RainbowColors_p, heatIndex);
+  CRGB color = ColorFromPalette(SimRainbowColors_p, heatIndex);
   // fill the entire strip with the current color
   fill_solid(leds, NUM_LEDS, color);
 
