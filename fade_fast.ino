@@ -52,24 +52,24 @@ void loop() {
 extern const TProgmemRGBPalette16 SimColors_p FL_PROGMEM =
 {
     CRGB::Green,
-    CRGB::Green,
-    CRGB::Green,
-    CRGB::Green,
+    CRGB::Aqua,
+    CRGB::Blue,
+    CRGB::Purple,
     
+    CRGB::Green,
     CRGB::Aqua,
-    CRGB::Aqua,
-    CRGB::Aqua,
-    CRGB::Aqua,
+    CRGB::Blue,
+    CRGB::Purple,
     
+    CRGB::Green,
+    CRGB::Aqua,
     CRGB::Blue,
-    CRGB::Blue,
-    CRGB::Blue,
-    CRGB::Blue,
+    CRGB::Purple,
 
-    CRGB:: Purple,
-    CRGB:: Purple,
-    CRGB:: Purple,
-    CRGB:: Purple
+    CRGB::Green,
+    CRGB::Aqua,
+    CRGB::Blue,
+    CRGB::Purple
 };
 
 //void flush(){
