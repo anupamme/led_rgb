@@ -52,7 +52,7 @@ void loop() {
 void sunrise() {
   
   // total sunrise length, in minutes
-  static const uint8_t sunriseLength = 30;
+  static const uint8_t sunriseLength = 3;
 
   // how often (in seconds) should the heat color increase?
   // for the default of 30 minutes, this should be about every 7 seconds
