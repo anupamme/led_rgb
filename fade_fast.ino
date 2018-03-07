@@ -1,3 +1,4 @@
+#include "Adafruit_DotStar.h"
 #include "FastLED.h"
 
 // How many leds in your strip?
