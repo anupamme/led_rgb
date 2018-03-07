@@ -2,7 +2,7 @@
 #include "FastLED.h"
 
 // How many leds in your strip?
-#define NUM_LEDS 60
+#define NUM_LEDS 30
 
 // For led chips like Neopixels, which have a data line, ground, and power, you just
 // need to define DATA_PIN.  For led chipsets that are SPI based (four wires - data, clock,
@@ -72,6 +72,12 @@ extern const TProgmemRGBPalette16 SimColors_p FL_PROGMEM =
     CRGB:: Purple
 };
 
+//void flush(){
+//  for (int i = 0; i < NUM_LEDS; i++){
+//    strip.setPixelColor(i, 0, 0, 0);
+//  }
+//}
+
 void sunrise() {
   
   // total sunrise length, in minutes
@@ -90,8 +96,8 @@ void sunrise() {
   // HeatColors_p is a gradient palette built in to FastLED
   // that fades from black to red, orange, yellow, white
   // feel free to use another palette or define your own custom one
-//  CRGB color = ColorFromPalette(SimColors_p, heatIndex);
-  CRGB color = ColorFromPalette(CloudColors_p, heatIndex);
+CRGB color = ColorFromPalette(SimColors_p, heatIndex);
+//  CRGB color = ColorFromPalette(CloudColors_p, heatIndex);
 //  CRGB color = ColorFromPalette(OceanColors_p, heatIndex);
 //  CRGB color = ColorFromPalette(ForestColors_p, heatIndex);
 //  CRGB color = ColorFromPalette(RainbowColors_p, heatIndex);
@@ -105,6 +111,8 @@ void sunrise() {
       if(heatIndex < 255) 
           heatIndex++; 
       else
+          delay(2500)
+          fill_solid(leds, NUM_LEDS, CRGB(0,0,0));
           heatIndex = 0
   }
 //  EVERY_N_SECONDS(interval) {
