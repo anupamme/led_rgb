@@ -90,8 +90,8 @@ void sunrise() {
   // HeatColors_p is a gradient palette built in to FastLED
   // that fades from black to red, orange, yellow, white
   // feel free to use another palette or define your own custom one
-  CRGB color = ColorFromPalette(SimColors_p, heatIndex, heatIndex);
-//  CRGB color = ColorFromPalette(CloudColors_p, heatIndex);
+//  CRGB color = ColorFromPalette(SimColors_p, heatIndex);
+  CRGB color = ColorFromPalette(CloudColors_p, heatIndex);
 //  CRGB color = ColorFromPalette(OceanColors_p, heatIndex);
 //  CRGB color = ColorFromPalette(ForestColors_p, heatIndex);
 //  CRGB color = ColorFromPalette(RainbowColors_p, heatIndex);
@@ -101,7 +101,12 @@ void sunrise() {
   fill_solid(leds, NUM_LEDS, color);
 
   // slowly increase the heat
-  EVERY_N_MILLISECONDS(interval ) { if(heatIndex < 255) heatIndex++; }
+  EVERY_N_MILLISECONDS(interval ) { 
+      if(heatIndex < 255) 
+          heatIndex++; 
+      else
+          heatIndex = 0
+  }
 //  EVERY_N_SECONDS(interval) {
 //    // stop incrementing at 255, we don't want to overflow back to 0
 //    if(heatIndex < 255) {
