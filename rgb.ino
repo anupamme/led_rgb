@@ -59,6 +59,7 @@ void flush(){
 void fadeToZero() {
     while (brightness >= 0) {
         brightness = brightness - fadeamount;
+        strip.setPixelColor(head, r, g, b);
         strip.setBrightness(brightness);
         delay(100);
     }
