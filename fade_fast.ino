@@ -69,7 +69,7 @@ extern const TProgmemRGBPalette16 SimColors_p FL_PROGMEM =
     CRGB::Blue,
     CRGB::Aqua,
     CRGB::Purple,
-    CRGB::Green,
+    CRGB::Green
 };
 
 //void flush(){
