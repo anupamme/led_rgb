@@ -76,7 +76,7 @@ void sunrise() {
   // HeatColors_p is a gradient palette built in to FastLED
   // that fades from black to red, orange, yellow, white
   // feel free to use another palette or define your own custom one
-  CRGB color = ColorFromPalette(Rainbow_gp, heatIndex);
+  CRGB color = ColorFromPalette(SimColors_p, heatIndex);
 
   // fill the entire strip with the current color
   fill_solid(leds, NUM_LEDS, color);
