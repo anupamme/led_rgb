@@ -85,7 +85,7 @@ extern const TProgmemRGBPalette16 SimRainbowColors_p FL_PROGMEM =
 //    strip.setPixelColor(i, 0, 0, 0);
 //  }
 //}
-
+CRGB prev_color = CRGB(0,0,0);
 void sunrise() {
   
   // total sunrise length, in minutes
@@ -116,16 +116,21 @@ void sunrise() {
 
   // slowly increase the heat
   EVERY_N_MILLISECONDS(interval ) { 
-      heatIndex = random(255);
-//      if(heatIndex < 255) 
-//          heatIndex++; 
-//      else{
-//          delay(2500);
-//          fill_solid(leds, NUM_LEDS, CRGB(0,0,0));
-//          heatIndex = 0;
-//      }
+//      heatIndex = random(255);
+      if(heatIndex < 255) 
+          heatIndex++; 
+      else{
+          delay(2500);
+          fill_solid(leds, NUM_LEDS, CRGB(0,0,0));
+          heatIndex = 0;
+      }
       CRGB color = ColorFromPalette(SimRainbowColors_p, heatIndex);
+      if (prev_color == color){
+          heatIndex = random(255);
+          color = ColorFromPalette(SimRainbowColors_p, heatIndex);
+      }
       fill_solid(leds, NUM_LEDS, color);
+      prev_color = color;
   }
 //  EVERY_N_SECONDS(interval) {
 //    // stop incrementing at 255, we don't want to overflow back to 0
