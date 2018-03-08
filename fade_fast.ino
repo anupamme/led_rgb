@@ -116,7 +116,7 @@ void sunrise() {
 
   // slowly increase the heat
   EVERY_N_MILLISECONDS(interval ) { 
-      heatIndex = random(255)
+      heatIndex = random(255);
 //      if(heatIndex < 255) 
 //          heatIndex++; 
 //      else{
