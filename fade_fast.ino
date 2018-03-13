@@ -41,6 +41,7 @@ void setup() {
       // FastLED.addLeds<P9813, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
       // FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
        FastLED.addLeds<DOTSTAR, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
+        pinMode( 6 , OUTPUT);  // Must be a PWM pin
 }
 
 void loop() { 
@@ -80,55 +81,35 @@ extern const TProgmemRGBPalette16 SimRainbowColors_p FL_PROGMEM =
     0xD5002B, 0xFF1493, 0xFFB6C1, 0xFFFFFF
 };
 
-//void flush(){
-//  for (int i = 0; i < NUM_LEDS; i++){
-//    strip.setPixelColor(i, 0, 0, 0);
-//  }
-//}
-void sunrise() {
-  
-  // total sunrise length, in minutes
-  static const float sunriseLength = 0.3;
+void change_color() {
+    if(heatIndex < 255)
+          heatIndex++; 
+      else{
+//          delay(2500);
+//          fill_solid(leds, NUM_LEDS, CRGB(0,0,0));
+          heatIndex = 0;
+      }
+      CRGB color = ColorFromPalette(SimRainbowColors_p, heatIndex);
+      fill_solid(leds, NUM_LEDS, color);
+}
 
-  // how often (in seconds) should the heat color increase?
+static uint8_t heatIndex = 0; // start out at 0
+static const float sunriseLength = 0.3;
+// how often (in seconds) should the heat color increase?
   // for the default of 30 minutes, this should be about every 7 seconds
   // 7 seconds x 256 gradient steps = 1,792 seconds = ~30 minutes
 //  static const uint8_t interval = (sunriseLength * 60) / 256;
   static const float interval = ((float)(sunriseLength * 60) / 256)*1000;
 
+void sunrise() {
+    
+    analogWrite( 6 , 153 );  // 60% duty cycle
+ delay(500);              // play for 0.5s
 
-  // current gradient palette color index
-  static uint8_t heatIndex = 0; // start out at 0
-
-  // HeatColors_p is a gradient palette built in to FastLED
-  // that fades from black to red, orange, yellow, white
-  // feel free to use another palette or define your own custom one
-//CRGB color = ColorFromPalette(SimColors_p, heatIndex);
-//  CRGB color = ColorFromPalette(CloudColors_p, heatIndex);
-//  CRGB color = ColorFromPalette(OceanColors_p, heatIndex);
-//  CRGB color = ColorFromPalette(ForestColors_p, heatIndex);
-//  CRGB color = ColorFromPalette(RainbowColors_p, heatIndex);
-//  CRGB color = ColorFromPalette(ForestColors_p, heatIndex);
-//  CRGB color = ColorFromPalette(SimRainbowColors_p, heatIndex);
-  // fill the entire strip with the current color
-//  fill_solid(leds, NUM_LEDS, color);
-
-  // slowly increase the heat
-  EVERY_N_MILLISECONDS(interval ) { 
-      if(heatIndex < 255)
-          heatIndex++; 
-      else{
-          delay(2500);
-          fill_solid(leds, NUM_LEDS, CRGB(0,0,0));
-          heatIndex = 0;
-      }
-      CRGB color = ColorFromPalette(SimRainbowColors_p, heatIndex);
-      fill_solid(leds, NUM_LEDS, color);
+ analogWrite( 6 , 0 );    // 0% duty cycle (off)
+    EVERY_N_MILLISECONDS(interval ) { 
+    change_color()  
   }
-//  EVERY_N_SECONDS(interval) {
-//    // stop incrementing at 255, we don't want to overflow back to 0
-//    if(heatIndex < 255) {
-//      heatIndex++;
-//    }
-//  }
+    
+ delay(4000);             // wait for 4s
 }
