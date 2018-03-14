@@ -46,9 +46,8 @@ void setup() {
 
 void loop() { 
   sunrise();
-  
   FastLED.show();
-    FastLED.delay(1000/10); 
+  run_motor();  
 }
 
 extern const TProgmemRGBPalette16 SimColors_p FL_PROGMEM =
@@ -103,11 +102,8 @@ void change_color() {
       fill_solid(leds, NUM_LEDS, color);
 }
 
-
-
-void sunrise() {
-    
-    analogWrite( 6 , 153 );  // 60% duty cycle
+void run_motor() {
+     analogWrite( 6 , 153 );  // 60% duty cycle
  delay(500);              // play for 0.5s
 
  analogWrite( 6 , 0 );    // 0% duty cycle (off)
@@ -115,8 +111,18 @@ void sunrise() {
     
     
  delay(4000);             // wait for 4s
-     
+}
+
+void sunrise() {
     EVERY_N_MILLISECONDS(interval ) { 
-    change_color();
+    if(heatIndex < 255)
+          heatIndex += 1;
+      else{
+//          delay(2500);
+//          fill_solid(leds, NUM_LEDS, CRGB(0,0,0));
+          heatIndex = 0;
+      }
+      CRGB color = ColorFromPalette(SimRainbowColors_p, heatIndex);
+      fill_solid(leds, NUM_LEDS, color);
   }
 }
