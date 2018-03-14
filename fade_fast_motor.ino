@@ -48,6 +48,7 @@ void loop() {
   sunrise();
   
   FastLED.show();
+    FastLED.delay(1000/10); 
 }
 
 extern const TProgmemRGBPalette16 SimColors_p FL_PROGMEM =
@@ -111,9 +112,11 @@ void sunrise() {
 
  analogWrite( 6 , 0 );    // 0% duty cycle (off)
 //    change_color()  
+    
+    
+ delay(4000);             // wait for 4s
+     
     EVERY_N_MILLISECONDS(interval ) { 
     change_color();
   }
-    
- delay(4000);             // wait for 4s
 }
