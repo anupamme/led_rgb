@@ -80,6 +80,13 @@ extern const TProgmemRGBPalette16 SimRainbowColors_p FL_PROGMEM =
     0x2A00D5, 0x5500AB, 0x7F0081, 0xAB0055, 
     0xD5002B, 0xFF1493, 0xFFB6C1, 0xFFFFFF
 };
+static const float sunriseLength = 0.3;
+// how often (in seconds) should the heat color increase?
+  // for the default of 30 minutes, this should be about every 7 seconds
+  // 7 seconds x 256 gradient steps = 1,792 seconds = ~30 minutes
+//  static const uint8_t interval = (sunriseLength * 60) / 256;
+  static const float interval = ((float)(sunriseLength * 60) / 256)*1000;
+static uint8_t heatIndex = 0; // start out at 0
 
 void change_color() {
     if(heatIndex < 255)
@@ -93,13 +100,7 @@ void change_color() {
       fill_solid(leds, NUM_LEDS, color);
 }
 
-static uint8_t heatIndex = 0; // start out at 0
-static const float sunriseLength = 0.3;
-// how often (in seconds) should the heat color increase?
-  // for the default of 30 minutes, this should be about every 7 seconds
-  // 7 seconds x 256 gradient steps = 1,792 seconds = ~30 minutes
-//  static const uint8_t interval = (sunriseLength * 60) / 256;
-  static const float interval = ((float)(sunriseLength * 60) / 256)*1000;
+
 
 void sunrise() {
     
