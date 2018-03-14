@@ -1,3 +1,4 @@
+#include "Thread.h"
 #include "Adafruit_DotStar.h"
 #include "FastLED.h"
 
@@ -12,6 +13,8 @@
 
 // Define the array of leds
 CRGB leds[NUM_LEDS];
+
+Thread myThread = Thread();
 
 void setup() { 
       // Uncomment/edit one of the following lines for your leds arrangement.
@@ -42,12 +45,15 @@ void setup() {
       // FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
        FastLED.addLeds<DOTSTAR, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
         pinMode( 6 , OUTPUT);  // Must be a PWM pin
+        myThread.onRun(run_motor);
+	   myThread.setInterval(500);
 }
 
 void loop() { 
   sunrise();
   FastLED.show();
-  run_motor();  
+  if(myThread.shouldRun())
+		myThread.run();
 }
 
 extern const TProgmemRGBPalette16 SimColors_p FL_PROGMEM =
