@@ -46,7 +46,7 @@ void setup() {
        FastLED.addLeds<DOTSTAR, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
         pinMode( 6 , OUTPUT);  // Must be a PWM pin
         myThread.onRun(run_motor);
-	   myThread.setInterval(500);
+//	   myThread.setInterval(500);
 }
 
 void loop() { 
