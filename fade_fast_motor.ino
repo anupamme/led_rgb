@@ -90,7 +90,9 @@ static uint8_t heatIndex = 0; // start out at 0
 
 void change_color() {
     if(heatIndex < 255)
-          heatIndex++; 
+          heatIndex += 10;
+        if (heatIndex > 255)
+            heatIndex = 255;
       else{
 //          delay(2500);
 //          fill_solid(leds, NUM_LEDS, CRGB(0,0,0));
@@ -108,9 +110,10 @@ void sunrise() {
  delay(500);              // play for 0.5s
 
  analogWrite( 6 , 0 );    // 0% duty cycle (off)
-    EVERY_N_MILLISECONDS(interval ) { 
     change_color()  
-  }
+//    EVERY_N_MILLISECONDS(interval ) { 
+//    change_color()  
+//  }
     
  delay(4000);             // wait for 4s
 }
