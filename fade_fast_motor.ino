@@ -110,10 +110,10 @@ void sunrise() {
  delay(500);              // play for 0.5s
 
  analogWrite( 6 , 0 );    // 0% duty cycle (off)
-    change_color()  
-//    EVERY_N_MILLISECONDS(interval ) { 
 //    change_color()  
-//  }
+    EVERY_N_MILLISECONDS(interval ) { 
+    change_color();
+  }
     
  delay(4000);             // wait for 4s
 }
