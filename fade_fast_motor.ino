@@ -117,7 +117,7 @@ void run_motor() {
 
 void sunrise() {
     EVERY_N_MILLISECONDS(interval ) { 
-    if(heatIndex < 128)
+    if(heatIndex < 255)
           heatIndex += 1;
       else{
           delay(2500);
