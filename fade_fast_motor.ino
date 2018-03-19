@@ -104,7 +104,7 @@ extern const TProgmemRGBPalette16 SimRainbowColors_p FL_PROGMEM =
     0x0000FF, 0x008080, 0x008080, 0x008080, 
 };
 
-static const float sunriseLength = 0.3;
+static const float sunriseLength = 0.1;
 static const float interval = ((float)(sunriseLength * 60) / 256)*1000;
 static uint8_t heatIndex = 0; // start out at 0
 
