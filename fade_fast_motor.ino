@@ -98,9 +98,10 @@ extern const TProgmemRGBPalette16 SimColors_p FL_PROGMEM =
 
 extern const TProgmemRGBPalette16 SimRainbowColors_p FL_PROGMEM =
 {
-    0x00AB55, 0x00AB55, 0x00AB55, 0x008080, 
+    0x008080, 
     0x008080, 0x008080, 0x0000FF, 0x0000FF, 
-    0x0000FF, 0x7F0081, 0x7F0081, 0x7F0081, 
+    0x0000FF, 0x7F0081, 0x7F0081, 0x7F0081,
+    0xFF69B4, 0xFF69B4, 0xFF69B4,
     0xC71585, 0xC71585, 0xC71585, 0xFFB6C1
 };
 
@@ -126,5 +127,6 @@ void sunrise() {
       }
       CRGB color = ColorFromPalette(SimRainbowColors_p, heatIndex);
       fill_solid(leds, NUM_LEDS, color);
+//        analogWrite(leds, brightness);
   }
 }
