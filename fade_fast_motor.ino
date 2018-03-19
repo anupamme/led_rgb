@@ -101,7 +101,7 @@ extern const TProgmemRGBPalette16 SimRainbowColors_p FL_PROGMEM =
     0x00AB55, 0x00AB55, 0x00AB55, 0x008080, 
     0x008080, 0x008080, 0x0000FF, 0x0000FF, 
     0x0000FF, 0x7F0081, 0x7F0081, 0x7F0081, 
-    0xFF69B4, 0xFF69B4, 0xFF69B4, 0xFFB6C1
+    0xC71585, 0xC71585, 0xC71585, 0xFFB6C1
 };
 
 static const float sunriseLength = 0.6;
@@ -117,7 +117,7 @@ void run_motor() {
 
 void sunrise() {
     EVERY_N_MILLISECONDS(interval ) { 
-    if(heatIndex < 255)
+    if(heatIndex < 128)
           heatIndex += 1;
       else{
           delay(2500);
