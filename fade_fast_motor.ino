@@ -53,8 +53,8 @@ void setup() {
 void loop() { 
   sunrise();
   FastLED.show();
-  if(myThread.shouldRun())
-		myThread.run();
+//  if(myThread.shouldRun())
+//		myThread.run();
 }
 
 extern const TProgmemRGBPalette16 SimColors_p FL_PROGMEM =
@@ -84,8 +84,8 @@ extern const TProgmemRGBPalette16 SimRainbowColors_p FL_PROGMEM =
 {
     0xFF1493, 0xFFB6C1, 0x56D500, 0x00D52A, 
     0x00AB55, 0x00FFFF, 0x008080, 0x0000FF, 
-    0x2A00D5, 0x5500AB, 0x7F0081, 0xAB0055, 
-    0xD5002B, 0xFF1493, 0xFFB6C1, 0xFFFFFF
+    0x2A00D5, 0x5500AB, 0xDA70D6, 0x7F0081, 
+    0xAB0055, 0xFF1493, 0xFFB6C1, 0xFFFFFF
 };
 
 static const float sunriseLength = 0.3;
@@ -104,8 +104,8 @@ void sunrise() {
     if(heatIndex < 255)
           heatIndex += 1;
       else{
-//          delay(2500);
-//          fill_solid(leds, NUM_LEDS, CRGB(0,0,0));
+          delay(2500);
+          fill_solid(leds, NUM_LEDS, CRGB(0,0,0));
           heatIndex = 0;
       }
       CRGB color = ColorFromPalette(SimRainbowColors_p, heatIndex);
