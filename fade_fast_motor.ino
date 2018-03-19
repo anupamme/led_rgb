@@ -44,7 +44,7 @@ void setup() {
       // FastLED.addLeds<P9813, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
       // FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
        FastLED.addLeds<DOTSTAR, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
-        pinMode( 6 , OUTPUT);  // Must be a PWM pin
+        pinMode( 9 , OUTPUT);  // Must be a PWM pin
         myThread.onRun(run_motor);
 	   myThread.setInterval(500);
 }
@@ -81,7 +81,7 @@ extern const TProgmemRGBPalette16 SimColors_p FL_PROGMEM =
 
 extern const TProgmemRGBPalette16 SimRainbowColors_p FL_PROGMEM =
 {
-    0xFF0000, 0xD52A00, 0x56D500, 0x00D52A, 
+    0xFF1493, 0xFFB6C1, 0x56D500, 0x00D52A, 
     0x00AB55, 0x00FFFF, 0x008080, 0x0000FF, 
     0x2A00D5, 0x5500AB, 0x7F0081, 0xAB0055, 
     0xD5002B, 0xFF1493, 0xFFB6C1, 0xFFFFFF
