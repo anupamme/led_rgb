@@ -10,6 +10,7 @@
 // ground, and power), like the LPD8806 define both DATA_PIN and CLOCK_PIN
 #define DATA_PIN 3
 #define CLOCK_PIN 13
+#define MOTOR_PIN 9
 
 // Define the array of leds
 CRGB leds[NUM_LEDS];
@@ -44,7 +45,7 @@ void setup() {
       // FastLED.addLeds<P9813, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
       // FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
        FastLED.addLeds<DOTSTAR, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
-        pinMode( 9 , OUTPUT);  // Must be a PWM pin
+        pinMode(MOTOR_PIN, OUTPUT);  // Must be a PWM pin
         myThread.onRun(run_motor);
 	   myThread.setInterval(500);
 }
@@ -92,9 +93,9 @@ static const float interval = ((float)(sunriseLength * 60) / 256)*1000;
 static uint8_t heatIndex = 0; // start out at 0
 
 void run_motor() {
- analogWrite( 6 , 153 );  // 60% duty cycle
+ analogWrite(MOTOR_PIN, 153 );  // 60% duty cycle
  delay(500);              // play for 0.5s
- analogWrite( 6 , 0 );    // 0% duty cycle (off)
+ analogWrite(MOTOR_PIN, 0 );    // 0% duty cycle (off)
  delay(4000);             // wait for 4s
 }
 
