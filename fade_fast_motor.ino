@@ -53,8 +53,8 @@ void setup() {
 void loop() { 
   sunrise();
   FastLED.show();
-//  if(myThread.shouldRun())
-//		myThread.run();
+  if(myThread.shouldRun())
+		myThread.run();
 }
 
 extern const TProgmemRGBPalette16 SimColors_p FL_PROGMEM =
