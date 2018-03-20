@@ -88,13 +88,13 @@ extern const TProgmemRGBPalette16 SimColors_p FL_PROGMEM =
 //    0xAB0055, 0xFF1493, 0xFFB6C1, 0xFFFFFF
 //};
 
-//extern const TProgmemRGBPalette16 SimRainbowColors_p FL_PROGMEM =
-//{
-//    0x00AB55, 0x008080, 0x0000FF, 0x7F0081, 
-//    0xFF1493, 0x00AB55, 0x008080, 0x0000FF, 
-//    0x7F0081, 0xFF1493, 0x00AB55, 0x008080,
-//    0x0000FF, 0xFF1493, 0xFFB6C1, 0xFFFFFF
-//};
+extern const TProgmemRGBPalette16 SimRainbowColors_p FL_PROGMEM =
+{
+    0x00AB55, 0x008080, 0x0000FF, 0x7F0081, 
+    0xFF1493, 0x00AB55, 0x008080, 0x0000FF, 
+    0x7F0081, 0xFF1493, 0x00AB55, 0x008080,
+    0x0000FF, 0xFF1493, 0xFFB6C1, 0xFFFFFF
+};
 
 //extern const TProgmemRGBPalette16 SimRainbowColors_p FL_PROGMEM =
 //{
@@ -104,13 +104,13 @@ extern const TProgmemRGBPalette16 SimColors_p FL_PROGMEM =
 //    0x7F0081, 0x7F0081, 0x7F0081, 0x7F0081
 //};
 
-extern const TProgmemRGBPalette16 SimRainbowColors_p FL_PROGMEM =
-{
-    0xFF0000, 0xD52A00, 0x56D500, 0x00D52A, 
-    0x00AB55, 0x00FFFF, 0x008080, 0x0000FF, 
-    0x2A00D5, 0x5500AB, 0x7F0081, 0xAB0055, 
-    0xD5002B, 0xFF1493, 0xFFB6C1, 0xFFFFFF
-};
+//extern const TProgmemRGBPalette16 SimRainbowColors_p FL_PROGMEM =
+//{
+//    0xFF0000, 0xD52A00, 0x56D500, 0x00D52A, 
+//    0x00AB55, 0x00FFFF, 0x008080, 0x0000FF, 
+//    0x2A00D5, 0x5500AB, 0x7F0081, 0xAB0055, 
+//    0xD5002B, 0xFF1493, 0xFFB6C1, 0xFFFFFF
+//};
 
 static const float sunriseLength = 0.1;
 static const float interval = ((float)(sunriseLength * 60) / 256)*1000;
